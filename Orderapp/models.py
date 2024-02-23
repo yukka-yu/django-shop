@@ -31,7 +31,7 @@ def func():
 class OrderModel(models.Model):
     client = models.ForeignKey(ClientModel, on_delete=models.CASCADE)
     products = models.ManyToManyField(ProductModel, related_name='products')
-    summa = models.DecimalField(decimal_places=2, default=func, max_digits=20)
+    summa = models.DecimalField(decimal_places=2, default=func(), max_digits=20)
     order_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
